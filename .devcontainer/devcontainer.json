@@ -22,7 +22,9 @@
 				"ms-dotnettools.csharp",
 				"ms-azuretools.vscode-docker",
 				"zainchen.json",
-				"42crunch.vscode-openapi"
+				"42crunch.vscode-openapi",
+				"yzhang.markdown-all-in-one",
+				"streetsidesoftware.code-spell-checker"
 			]
 		}
 	},
