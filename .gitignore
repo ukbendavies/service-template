@@ -9,7 +9,9 @@ docs
 # ignore the generated solutions since we use a custom one
 Template.Generated.*.sln
 # generated source
-Template.Generated.*
+Template.Generated.*/*
+# do not ignore Template.Generated.Client.nuspec as it is not generated
+!*/Template.Generated.Client.nuspec
 
 # .NET build output
 bin
