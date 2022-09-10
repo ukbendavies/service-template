@@ -5,7 +5,7 @@
     "version": "6.0.1",
     "useDocker": true,
     "generators": {
-      "server": { 
+      "server": {
         "generatorName": "aspnetcore",
         "output": ".",
         "glob": "petstore.oas3.json",
@@ -22,6 +22,20 @@
           "packageDescription": "Generated server library for template service",
           "packageName": "Template.Generated.Server",
           "packageTitle": "Template Server Library",
+          "packageVersion": "0.1.0"
+        }
+      },
+      "client": {
+        "generatorName": "csharp-netcore",
+        "output": ".",
+        "glob": "petstore.oas3.json",
+        "additionalProperties": {
+          "targetFramework": "net6.0",
+          "sourceFolder": ".",
+          "apiName": "TemplateApi",
+          "licenseId": "MIT",
+          "netCoreProjectFile": true,
+          "packageName": "Template.Generated.Client",
           "packageVersion": "0.1.0"
         }
       }

@@ -28,3 +28,10 @@ dotnet run --project Template.Presentation/Template.Presentation.csproj
 ```
 
 Try making a request to http://localhost:8080/v1/pets!
+
+Instead of calling the API directly we can interact with using the generate client library, see [Template.Client.Demo](Template.Client.Demo/Program.cs). If the Template Service is running you can run the 'Template Client Demo' run configuration to try the demo application, or as follows from the command line.
+
+```sh
+cd Template.Client.Demo
+dotnet run
+```

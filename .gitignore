@@ -2,10 +2,14 @@
 .openapi-generator
 build.bat
 build.sh
-# ignore the generated sln since we use a custom one
-Template.Generated.Server.sln
+appveyor.yml
+git_push.sh
+# todo: organise docs later
+docs
+# ignore the generated solutions since we use a custom one
+Template.Generated.*.sln
 # generated source
-Template.Generated.Server
+Template.Generated.*
 
 # .NET build output
 bin
