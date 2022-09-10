@@ -1,0 +1,34 @@
+name: .NET
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v2
+      with:
+        dotnet-version: 6.0.x
+    - name: Run OpenAPI generators
+      run: npm install -g @openapitools/openapi-generator-cli && openapi-generator-cli generate
+    - name: Restore dependencies
+      run: dotnet restore Template.sln
+    - name: Build
+      run: dotnet build --no-restore Template.sln
+    - name: Test
+      run: dotnet test --no-build --verbosity normal Template.sln
+    - name: Package
+      run: dotnet pack --configuration Release Template.Generated.Client/Template.Generated.Client.csproj 
+    - name: NuGet Push
+      run: dotnet nuget push */bin/Release/*.nupkg -k $NUGET_AUTH_TOKEN -s $SOURCE --skip-duplicate 
+      env:
+        NUGET_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        SOURCE: https://nuget.pkg.github.com/tom-elvidge/index.json
