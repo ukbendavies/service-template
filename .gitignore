@@ -10,8 +10,8 @@ docs
 Template.Generated.*.sln
 # generated source
 Template.Generated.*/*
-# do not ignore Template.Generated.Client.nuspec as it is not generated
-!*/Template.Generated.Client.nuspec
+# do not ignore Template.Generated.Client.csproj as it is not generated
+!*/Template.Generated.Client.csproj
 
 # .NET build output
 bin
