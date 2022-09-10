@@ -11,7 +11,6 @@ using Template.Generated.Server.Controllers;
 
 namespace Template.Presentation
 {
-    [ApiController]
     public class ApiController : PetsApiController
     {
         public override IActionResult CreatePets()
@@ -19,7 +18,7 @@ namespace Template.Presentation
             throw new NotImplementedException();
         }
 
-        public override IActionResult ListPets([FromQuery] int? limit)
+        public override IActionResult ListPets(int? limit)
         {
             string exampleJson = null;
             exampleJson = "[{\n  \"name\" : \"name\",\n  \"id\" : 0,\n  \"tag\" : \"tag\"\n}]";
@@ -31,7 +30,7 @@ namespace Template.Presentation
             return new ObjectResult(example);
         }
 
-        public override IActionResult ShowPetById([FromRoute, Required] string petId)
+        public override IActionResult ShowPetById(string petId)
         {
             string exampleJson = null;
             exampleJson = "{\n  \"name\" : \"name\",\n  \"id\" : 0,\n  \"tag\" : \"tag\"\n}";
