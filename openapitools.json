@@ -1,0 +1,30 @@
+{
+  "$schema": "./node_modules/@openapitools/openapi-generator-cli/config.schema.json",
+  "spaces": 2,
+  "generator-cli": {
+    "version": "6.0.1",
+    "useDocker": true,
+    "generators": {
+      "server": { 
+        "generatorName": "aspnetcore",
+        "output": ".",
+        "glob": "petstore.oas3.json",
+        "additionalProperties": {
+          "aspnetCoreVersion": "6.0",
+          "newtonsoftVersion": "13.0.1",
+          "sourceFolder": "",
+          "buildTarget": "library",
+          "classModifier": "abstract",
+          "generateBody": false,
+          "license": "MIT",
+          "licenseUrl": "https://github.com/tom-elvidge/service-template/blob/main/LICENSE",
+          "packageAuthors": "Tom Elvidge",
+          "packageDescription": "Generated server library for template service",
+          "packageName": "Template.Generated.Server",
+          "packageTitle": "Template Server Library",
+          "packageVersion": "0.1.0"
+        }
+      }
+    }
+  }
+}
