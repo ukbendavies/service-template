@@ -17,6 +17,9 @@ jobs:
       uses: actions/setup-dotnet@v2
       with:
         dotnet-version: 6.0.x
+        source-url: https://nuget.pkg.github.com/tom-elvidge/index.json
+      env:
+        NUGET_AUTH_TOKEN: ${{ secrets.GH_PACKAGES_TOKEN }}  
     - name: Run OpenAPI generators
       run: npm install -g @openapitools/openapi-generator-cli && openapi-generator-cli generate
     - name: Restore dependencies
@@ -28,4 +31,4 @@ jobs:
     - name: Package
       run: dotnet pack --configuration Release Template.Generated.Client/Template.Generated.Client.csproj 
     - name: NuGet Push
-      run: dotnet nuget push Template.Generated.Client/bin/Release/Template.Generated.Client.*.nupkg --api-key ${{ secrets.GH_PACKAGES_TOKEN }} --source https://nuget.pkg.github.com/tom-elvidge/index.json --skip-duplicate
+      run: dotnet nuget push Template.Generated.Client/bin/Release/Template.Generated.Client.*.nupkg --skip-duplicate --no-symbols true
