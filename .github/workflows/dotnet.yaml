@@ -25,3 +25,7 @@ jobs:
       run: dotnet build --no-restore Template.sln
     - name: Test
       run: dotnet test --no-build --verbosity normal Template.sln
+    - name: Package
+      run: dotnet pack --configuration Release --project Template.Generated.Client/Template.Generated.Client.csproj 
+    - name: NuGet Push
+      run: dotnet nuget push *.nupkg --api-key ${{ secrets.GH_PACKAGES_TOKEN }} --source https://nuget.pkg.github.com/tom-elvidge/index.json --skip-duplicate
