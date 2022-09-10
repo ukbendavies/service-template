@@ -28,4 +28,4 @@ jobs:
     - name: Package
       run: dotnet pack --configuration Release Template.Generated.Client/Template.Generated.Client.csproj 
     - name: NuGet Push
-      run: dotnet nuget push *.nupkg --api-key ${{ secrets.GH_PACKAGES_TOKEN }} --source https://nuget.pkg.github.com/tom-elvidge/index.json --skip-duplicate
+      run: dotnet nuget push Template.Generated.Client/bin/Release/Template.Generated.Client.*.nupkg --api-key ${{ secrets.GH_PACKAGES_TOKEN }} --source https://nuget.pkg.github.com/tom-elvidge/index.json --skip-duplicate
