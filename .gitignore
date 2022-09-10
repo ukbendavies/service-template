@@ -1,0 +1,8 @@
+# generated files
+.openapi-generator
+build.bat
+build.sh
+# ignore the generated sln since we use a custom one
+Template.Generated.Server.sln
+# generated source
+src/Template.Generated.Server
