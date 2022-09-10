@@ -1,0 +1,22 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+      {
+          "name": "Template Service",
+          "type": "coreclr",
+          "request": "launch",
+          "preLaunchTask": "Build Solution",
+          "program": "./bin/Debug/net6.0/Template.Presentation.dll",
+          "args": [],
+          "cwd": "${workspaceFolder}/Template.Presentation",
+          "env": {
+              "ASPNETCORE_ENVIRONMENT": "Development"
+          }
+      },
+      {
+          "name": ".NET Core Attach",
+          "type": "coreclr",
+          "request": "attach"
+      }
+  ]
+}

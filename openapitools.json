@@ -11,7 +11,7 @@
         "glob": "petstore.oas3.json",
         "additionalProperties": {
           "aspnetCoreVersion": "6.0",
-          "newtonsoftVersion": "13.0.1",
+          "newtonsoftVersion": "6.0.8",
           "sourceFolder": "",
           "buildTarget": "library",
           "classModifier": "abstract",

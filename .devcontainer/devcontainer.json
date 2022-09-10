@@ -66,6 +66,9 @@
 		},
 		"5000": {
 			"label": "swagger"
+		},
+		"8080": {
+			"label": "aspnetcore"
 		}
 	}
 }

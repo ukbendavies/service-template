@@ -6,3 +6,7 @@ build.sh
 Template.Generated.Server.sln
 # generated source
 Template.Generated.Server
+
+# .NET build output
+bin
+obj
