@@ -7,7 +7,7 @@ A template repository for developing new services from an Open API specification
 - ~~Set up Codespaces with pre-builds for easy demonstration~~
 - ~~Generate a client library~~
 - ~~Create a demo application which uses the client library to make requests to the template service~~
-- Create a CI pipeline with GitHub Actions to test, build and scan all the projects, as well as publish the client library
+- ~~Create a CI pipeline with GitHub Actions to build and test all the projects, then publish the client librarye~~
 - Process for handling versioning in CI
 - Create a CD pipeline with GitHub Actions to deploy the template service
 - Extend the template service to follow Domain Driven Design
