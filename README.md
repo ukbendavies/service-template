@@ -12,3 +12,5 @@ A template repository for developing new services from an Open API specification
 - Create a CD pipeline with GitHub Actions to deploy the template service
 - Extend the template service to follow Domain Driven Design
 - Back the template service by a database and update CD pipeline with new infrastructure as code
+- Authorization with Auth0
+- Instructions or a script for creating new services from the template
