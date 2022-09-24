@@ -1,4 +1,4 @@
-name: .NET
+name: Continuous Integration
 
 on:
   push:
@@ -8,9 +8,7 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v3
     - name: Setup .NET
@@ -32,3 +30,22 @@ jobs:
       env:
         NUGET_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         SOURCE: https://nuget.pkg.github.com/tom-elvidge/index.json
+    - name: Google Cloud Auth
+      uses: 'google-github-actions/auth@v0'
+      with:
+        credentials_json: ${{ secrets.GCP_CREDENTIALS }}
+    - name: Set up Cloud SDK
+      uses: google-github-actions/setup-gcloud@v0
+    - name: Configure Docker to use Google Cloud
+      run: gcloud auth configure-docker --quiet
+    - name: Get metadata for Docker image
+      id: meta
+      uses: docker/metadata-action@v3
+      with:
+        images: gcr.io/${{ env.GCP_PROJECT_ID }}/${{ env.GCP_APP_NAME }}
+    - name: Build and push Docker image
+      uses: docker/build-push-action@v2
+      with:
+        push: true
+        tags: ${{ steps.meta.outputs.tags }}
+        labels: ${{ steps.meta.outputs.labels }}

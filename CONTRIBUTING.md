@@ -35,3 +35,25 @@ Instead of calling the API directly we can interact with using the generate clie
 cd Template.Client.Demo
 dotnet run
 ```
+
+Build the Docker image and run locally.
+
+```sh
+docker build . -t service-template
+docker run -d -p 8080:8080 template-service
+```
+
+Deploy to Google Cloud Run, this will be done in GitHub actions on commits to main.
+
+```sh
+gcloud auth login
+gcloud config set project tomelvidge
+gcloud run deploy service-template \
+	--source=./ \
+	--region=europe-west1 \
+	--min-instances=0 \
+	--max-instances=4 \
+	--allow-unauthenticated
+```
+
+From GitHub Actions you cannot set --allow-unauthenticated and services are defaulted to private. This has to be changed manually in the Google Cloud Console one time and then all subsequent deployments will keep the service public with authentication.
