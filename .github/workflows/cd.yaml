@@ -15,6 +15,6 @@ jobs:
     - name: Deploy to Google Cloud Run
       uses: 'google-github-actions/deploy-cloudrun@v0'
       with:
-        service: ${{ env.SERVICE }}
-        region: ${{ env.REGION }}
-        image: gcr.io/${{ env.GCP_PROJECT_ID }}/${{ env.GCP_APP_NAME }}
+        service: ${{ secrets.GCP_APP_NAME }}
+        region: europe-west1
+        image: gcr.io/${{ secrets.GCP_PROJECT_ID }}/${{ secrets.GCP_APP_NAME }}
