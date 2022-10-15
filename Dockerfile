@@ -3,9 +3,9 @@ WORKDIR /app
 
 COPY . ./
 # Restore as distinct layers
-RUN dotnet restore Template.sln
+RUN dotnet restore Template.Server.sln
 # Build and publish a release
-RUN dotnet publish Template.sln -c Release -o out
+RUN dotnet publish Template.Server.sln -c Release -o out
 
 # Build runtime image
 FROM mcr.microsoft.com/dotnet/aspnet:6.0
