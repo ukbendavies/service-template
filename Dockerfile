@@ -1,7 +1,6 @@
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build-env
 WORKDIR /app
 
-# Copy everything from parent directory
 COPY . ./
 # Restore as distinct layers
 RUN dotnet restore Template.sln
