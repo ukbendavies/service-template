@@ -14,3 +14,4 @@ A template repository for developing new services from an Open API specification
 - Back the template service by a database and update CD pipeline with new infrastructure as code
 - Authorization with Auth0
 - Instructions or a script for creating new services from the template
+.
